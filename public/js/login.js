@@ -10,7 +10,6 @@ function getCreds() {
 
 function login(type) {
   error.textContent = '';
-
   const cred = getCreds();
   superagent.post(`/api/${type}`)
     .send(cred)
