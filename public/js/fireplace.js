@@ -14,7 +14,7 @@ timerButton.addEventListener('click', timer);
 function on() {
   superagent
   .get('/api/fireplace/on')
-  .set('Authorization', `Bearer ${token}`)
+  // .set('Authorization', `Bearer ${token}`)
   .end((err,res) => {
     if (err) resultDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
@@ -25,7 +25,7 @@ function on() {
 function off() {
   superagent
   .get('/api/fireplace/off')
-  .set('Authorization', `Bearer ${token}`)
+  // .set('Authorization', `Bearer ${token}`)
   .end((err,res) => {
     if (err) resultDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
@@ -36,7 +36,7 @@ function off() {
 function status() {
   superagent
   .get('/api/fireplace/status')
-  .set('Authorization', `Bearer ${token}`)
+  // .set('Authorization', `Bearer ${token}`)
   .end((err, res) => {
     if (err) resultDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
@@ -49,7 +49,7 @@ function timer(e) {
   superagent
   .post('/api/fireplace/timer')
   .send({timeout})
-  .set('Authorization', `Bearer ${token}`)
+  // .set('Authorization', `Bearer ${token}`)
   .end((err, res) => {
     if (err) resultDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
