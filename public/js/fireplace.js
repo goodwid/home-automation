@@ -1,5 +1,5 @@
 /* globals token */
-const resultDisplay = document.getElementById('fireplace-result-display');
+const statusDisplay = document.getElementById('fireplace-status-display');
 const onButton = document.getElementById('fireplace-on');
 const offButton = document.getElementById('fireplace-off');
 const statusButton = document.getElementById('fireplace-status');
@@ -16,9 +16,9 @@ function on() {
   .get('/api/fireplace/on')
   // .set('Authorization', `Bearer ${token}`)
   .end((err,res) => {
-    if (err) resultDisplay.innerHTML = console.log(err);
+    if (err) statusDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
-    resultDisplay.innerHTML = response.message;
+    statusDisplay.innerHTML = response.message;
   });
 }
 
@@ -27,9 +27,9 @@ function off() {
   .get('/api/fireplace/off')
   // .set('Authorization', `Bearer ${token}`)
   .end((err,res) => {
-    if (err) resultDisplay.innerHTML = console.log(err);
+    if (err) statusDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
-    resultDisplay.innerHTML = response.message;
+    statusDisplay.innerHTML = response.message;
   });
 }
 
@@ -38,9 +38,9 @@ function status() {
   .get('/api/fireplace/status')
   // .set('Authorization', `Bearer ${token}`)
   .end((err, res) => {
-    if (err) resultDisplay.innerHTML = console.log(err);
+    if (err) statusDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
-    resultDisplay.innerHTML = `${response.message}<br>${response.timeout}`;
+    statusDisplay.innerHTML = `${response.message}<br>${response.timeout}`;
   });
 }
 
@@ -51,9 +51,9 @@ function timer(e) {
   .send({timeout})
   // .set('Authorization', `Bearer ${token}`)
   .end((err, res) => {
-    if (err) resultDisplay.innerHTML = console.log(err);
+    if (err) statusDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
-    resultDisplay.innerHTML = response.message;
+    statusDisplay.innerHTML = response.message;
     timerData.value = '';
   });
 }
