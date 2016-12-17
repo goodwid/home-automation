@@ -54,6 +54,5 @@ function timer(e) {
     if (err) statusDisplay.innerHTML = console.log(err);
     let response = JSON.parse(res.text);
     statusDisplay.innerHTML = response.message;
-    timerData.value = '';
   });
 }
