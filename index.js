@@ -3,7 +3,7 @@ require ('dotenv').config();
 
 const app = require('./lib/app');
 const port = process.argv[2] || 9000;
-// require ('./lib/setup-mongoose');
+require ('./lib/setup-mongoose');
 
 app.listen(port, err =>{
   if (err) return console.error(err);
