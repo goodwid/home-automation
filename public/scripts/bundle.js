@@ -69,7 +69,7 @@
 	_homeAuto2.default.config(_http2.default);
 	_homeAuto2.default.config(_routes2.default);
 	_homeAuto2.default.run(_auth2.default);
-	_homeAuto2.default.value('apiUrl', 'http://localhost:9000/api');
+	_homeAuto2.default.value('apiUrl', 'http://192.168.1.41:9000/api');
 	
 	angular.bootstrap(document, [_homeAuto2.default.name]);
 
