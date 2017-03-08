@@ -7,7 +7,7 @@ const tempSchema = new Schema({
     required: true
   },
   timestamp: {
-    type: String,
+    type: Number,
     required: true
   },
   reporter: {
@@ -16,7 +16,7 @@ const tempSchema = new Schema({
   }
 });
 
-tempSchema.methods.getF = () => {
+tempSchema.methods.getF = function () {
   return this.temp * (9/5) + 32;
 };
 

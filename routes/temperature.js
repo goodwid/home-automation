@@ -18,8 +18,10 @@ router
       .catch(err => next(err));
   })
   .post('/', bodyParser, (req, res, next) => {
+    if (req.headers.Authorization !== process.env.TEMP1_SENSOR_KEY) return next({error: 'no authorization', msg: 'Authorization key does not match.', code: 401});
     const data = req.body;
-    data.timestamp = new Date().valueOf();
+    const time = new Date();
+    data.timestamp = time.valueOf();
     console.log(data);
     new Temp(data).save()
       .then(data => res.send(data))
