@@ -50,7 +50,10 @@ router
     User.findOne({username})
       .then(user => {
         if (!user || !user.compareHash(password)) {
-          return res.status(400).json({msg: 'Authentication failed.'});
+          next({
+            code: 400,
+            msg: 'Authentication failed.'
+          });
         }
 
         return token.sign(user)
